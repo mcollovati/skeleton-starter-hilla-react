@@ -1,8 +1,10 @@
 import { Button } from "@hilla/react-components/Button.js";
 import { Notification } from "@hilla/react-components/Notification.js";
 import { TextField } from "@hilla/react-components/TextField.js";
-import { HelloEndpoint } from "Frontend/generated/endpoints.js";
+import {HelloEndpoint, MyEndpoint} from "Frontend/generated/endpoints.js";
+import { AutoGrid } from "@hilla/react-crud";
 import { useState } from "react";
+import MyEntityModel from "Frontend/generated/org/vaadin/example/endpoints/MyEntityModel";
 
 export default function MainView() {
   const [name, setName] = useState("");
@@ -23,6 +25,7 @@ export default function MainView() {
       >
         Say hello
       </Button>
+        <AutoGrid service={MyEndpoint} model={MyEntityModel}/>
     </>
   );
 }
